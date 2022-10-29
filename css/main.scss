@@ -1,0 +1,140 @@
+$backgroundcolor : rgb(247, 249, 252);
+$mainColor : rgb(255, 255, 255);
+$subColor : rgb(129, 183, 242);
+$greyColor : rgb(232, 232, 232);
+$callBtnColor : rgb(126, 233, 119);
+
+@mixin box-layout() {
+  width: 100%;
+  background-color: $mainColor;
+  padding: 1px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+body {
+  margin: 0;
+  background-color: $backgroundcolor;
+  #wrap {
+    width: 100%;
+    max-width: 2000px;
+    padding: 1px;
+    .container {
+      width: 80%;
+      margin: 30px auto;
+      padding: 1px;
+      .shortcut-profile {
+        width: 100%;
+        background-color: $mainColor;
+        border: none;
+        border-radius: 10px;
+        padding: 1px;
+        .profile-container {
+          margin: 10px 0 10px 10px;
+          .top-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            img {
+              display: block;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              margin-right: 40px;
+            }
+            .content-box {
+              h3, p {
+                margin: 5px 0;
+              }
+              button {
+                padding: 5px 24px;
+                background-color: $callBtnColor;
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                transition: all .4s;
+                &:hover {
+                  background-color: rgb(10, 245, 10);
+                  transform: scaleX(1.2);
+                }
+              }
+            }
+          }
+          .bottom-box {
+            margin-top: 30px;
+            display: flex;
+            .content-box {
+              margin-right: 30px;
+            }
+          }
+        }
+      }
+      .detail-profile {
+        .line {
+          display: flex;
+          margin-bottom: 20px;
+          .blue-line {
+            color: rgb(129, 183, 242);
+            padding: 10px 20px;
+            border-bottom: 2px solid $subColor;
+          }
+          .grey-line{
+            width: 100%;
+            border-bottom: 2px solid $greyColor;
+          }
+        }
+        .work {
+          @include box-layout();
+          .content-box {
+            margin: 20px 0 20px 20px;
+            ul {
+              list-style: none;
+              padding: 0;
+            }
+          }
+        }
+        .detail {
+          @include box-layout();
+          .content-box {
+            margin: 20px;
+            .top {
+              border-bottom: 2px solid $greyColor;
+            }
+            .bottom {
+              ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                li {
+                  border: 2px solid $greyColor;
+                  padding: 5px 15px;
+                  border-radius: 20px;
+                  margin: 3px;
+                }
+              }
+            }
+          }
+        }
+        .github {
+          @include box-layout();
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          img {
+            display: block;
+            width: 100px;
+            height: 100px;
+          }
+          h4 {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
